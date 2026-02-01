@@ -1,0 +1,299 @@
+:root {
+  color-scheme: light;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  --bg: #0b0b16;
+  --bg-soft: #101026;
+  --card: #151532;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --accent: #f5d04c;
+  --accent-2: #4be3c1;
+  --text: #f2f2ff;
+  --muted: rgba(242, 242, 255, 0.7);
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle at top left, #3c2e71, #0b0b16 55%),
+    radial-gradient(circle at 80% 20%, #1b7f6e, transparent 50%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  padding: 64px 6vw 80px;
+  overflow: hidden;
+}
+
+.noise {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+  opacity: 0.25;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 64px;
+}
+
+.hero-text {
+  max-width: 520px;
+}
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 12px;
+  color: var(--accent-2);
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-family: "Fraunces", serif;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.lead {
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.hero-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent);
+  border-radius: 24px;
+  padding: 1px;
+  min-width: min(360px, 90vw);
+  box-shadow: var(--shadow);
+  animation: floatIn 0.8s ease-out;
+}
+
+.hero-card__inner {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 24px;
+  border: 1px solid var(--card-border);
+}
+
+.hero-card__title {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  background: rgba(245, 208, 76, 0.15);
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.user strong {
+  display: block;
+}
+
+.user span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.login-area {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.form label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.form input {
+  border-radius: 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(245, 208, 76, 0.2);
+}
+
+.status {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.status.error {
+  color: #ff8a8a;
+}
+
+.ghost {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.content {
+  background: rgba(10, 10, 20, 0.65);
+  border-radius: 32px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+}
+
+.content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.content-header h2 {
+  font-size: 1.6rem;
+}
+
+.content-header p {
+  color: var(--muted);
+}
+
+.apk-list {
+  display: grid;
+  gap: 18px;
+}
+
+.apk-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 24px;
+  border-radius: 18px;
+  background: var(--bg-soft);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.apk-version {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.apk-date {
+  color: var(--accent-2);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.apk-notes {
+  color: var(--muted);
+  margin-top: 10px;
+  max-width: 520px;
+}
+
+.cta {
+  text-decoration: none;
+  background: var(--accent);
+  color: #1b1b1b;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 999px;
+  transition: transform 0.2s ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+}
+
+.empty,
+.locked {
+  color: var(--muted);
+  text-align: center;
+  padding: 28px;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+}
+
+.footer {
+  margin-top: 48px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 840px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .content-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .apk-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
