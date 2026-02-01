@@ -39,12 +39,18 @@ Set up your Apps Script API endpoints following your backend spec:
 ## 3) GitHub Pages deploy
 
 1. In GitHub repo settings → Pages, set source to `gh-pages` (or `docs` if you prefer).
-2. Build and push `dist/` to `gh-pages` branch. Example:
+2. Build and push `dist/` to `gh-pages` branch. Use the following commands:
 
 ```bash
+rm -rf dist
 npm run build
 npx gh-pages -d dist
 ```
+
+Command meaning:
+- `rm -rf dist`: Xóa thư mục build cũ để tránh dùng nhầm asset cũ.
+- `npm run build`: Build dự án ra thư mục `dist`.
+- `npx gh-pages -d dist`: Publish nội dung `dist` lên nhánh `gh-pages`.
 
 If you use a custom domain, set `VITE_BASE_PATH=/`.
 

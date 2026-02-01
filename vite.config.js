@@ -1,10 +1,13 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 
-const repoName = process.env.VITE_REPO_NAME || "landingpage";
-const basePath = process.env.VITE_BASE_PATH || `/${repoName}/`;
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), "VITE_");
+  const repoName = env.VITE_REPO_NAME || "landingpage";
+  const basePath = env.VITE_BASE_PATH || `/${repoName}/`;
 
-export default defineConfig({
-  plugins: [react()],
-  base: basePath,
+  return {
+    plugins: [react()],
+    base: basePath,
+  };
 });

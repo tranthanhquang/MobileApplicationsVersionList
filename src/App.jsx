@@ -261,7 +261,7 @@ export default function App() {
           <h2>APK builds</h2>
           <p>
             {isAuthed
-              ? "Nhấn tải để lấy file từ OneDrive."
+              ? "Nhấn tải để lấy file."
               : "Vui lòng đăng nhập để xem danh sách."}
           </p>
         </div>
